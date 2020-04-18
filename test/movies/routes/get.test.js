@@ -154,4 +154,25 @@ describe('GET movies', () => {
     res.should.have.status(200)
     res.body.should.be.eql([])
   })
+
+  it('should validate duriation has to be numeric', async () => {
+    const res = await chai.request(server).get('/movies').query({ duration: 'abc' })
+
+    res.should.have.status(422)
+    res.body.errors.should.containSubset([{ param: 'duration', msg: 'duration has to be numeric' }])
+  })
+
+  it('should validate genres cannot be numeric', async () => {
+    const res = await chai.request(server).get('/movies').query({ genres: 123 })
+
+    res.should.have.status(422)
+    res.body.errors.should.containSubset([{ param: 'genres', msg: 'genres has to be an array or a string' }])
+  })
+
+  it('should validate genres are predefined values', async () => {
+    const res = await chai.request(server).get('/movies').query({ genres: ['Random genre'] })
+
+    res.should.have.status(422)
+    res.body.errors.should.containSubset([{ param: 'genres', msg: 'genres can only contain predefined values' }])
+  })
 })

@@ -1,12 +1,6 @@
 const { check, validationResult } = require('express-validator')
 const fs = require('fs')
-
-const validateGenres = (items, { req }) => {
-  const validation = items.every(item => req.db.genres.includes(item))
-  // eslint-disable-next-line prefer-promise-reject-errors
-  if (!validation) return Promise.reject('genres can only contain predefined values')
-  return Promise.resolve()
-}
+const validateGenres = require('../validateGenres')
 
 const validators = [
   check('genres')
