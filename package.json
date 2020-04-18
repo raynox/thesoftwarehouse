@@ -21,7 +21,7 @@
     "nodemon": "^2.0.3"
   },
   "scripts": {
-    "test": "mocha 'test/**/*.js' --timeout 10000 --exit --env NODE_ENV='test' --env DBPATH='./test/movies/testdb.json'",
+    "test": "mocha 'test/**/*.js' --timeout 10000 --exit",
     "start": "nodemon index.js",
     "lint": "eslint --ext .js --ignore-path .gitignore .",
     "lint:fix": "eslint --fix --ext .js --ignore-path .gitignore ."
