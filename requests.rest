@@ -1,0 +1,17 @@
+POST http://localhost:4000/movies
+Content-Type: application/json
+
+{
+  "title": "The English Patient",
+  "year": "1996",
+  "runtime": "162",
+  "genres": [
+      "Drama",
+      "Romance",
+      "War"
+  ],
+  "director": "Anthony Minghella",
+  "actors": "Ralph Fiennes, Juliette Binoche, Willem Dafoe, Kristin Scott Thomas",
+  "plot": "At the close of WWII, a young nurse tends to a badly-burned plane crash victim. His past is shown in flashbacks, revealing an involvement in a fateful love affair.",
+  "posterUrl": "https://images-na.ssl-images-amazon.com/images/M/MV5BNDg2OTcxNDE0OF5BMl5BanBnXkFtZTgwOTg2MDM0MDE@._V1_SX300.jpg"
+}
